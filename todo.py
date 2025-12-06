@@ -8,9 +8,15 @@ def add_task():
     print(f"Đã thêm công việc: '{content}' [Pending].")
 
 def view_tasks():
-    # Sẽ được thêm code ở Bước 4
-    print("Chức năng xem danh sách.")
-    pass
+    # Bắt đầu code cho Feature 2
+    print("\n--- DANH SÁCH CÔNG VIỆC ---")
+    if not tasks:
+        print("Danh sách công việc trống.")
+        return
+
+    for index, task in enumerate(tasks):
+        # Duyệt qua danh sách và in ra định dạng: 1. Học bài [Pending]
+        print(f"{index + 1}. {task['content']} [{task['status']}]")
 
 def mark_task_done():
     # Sẽ được thêm code ở Bước 5
