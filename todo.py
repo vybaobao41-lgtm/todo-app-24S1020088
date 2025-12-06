@@ -19,9 +19,25 @@ def view_tasks():
         print(f"{index + 1}. {task['content']} [{task['status']}]")
 
 def mark_task_done():
-    # Sẽ được thêm code ở Bước 5
-    print("Chức năng đánh dấu hoàn thành.")
-    pass
+    # Hiển thị danh sách để người dùng chọn
+    view_tasks() 
+
+    if not tasks:
+        return # Thoát nếu danh sách trống
+
+    try:
+        # Nhập số thứ tự (index) từ người dùng
+        task_index = int(input("Nhập số thứ tự công việc muốn đánh dấu HOÀN THÀNH: ")) - 1
+
+        # Kiểm tra index hợp lệ
+        if 0 <= task_index < len(tasks):
+            # Cập nhật status của task đó thành "Done"
+            tasks[task_index]['status'] = 'Done'
+            print(f"Đã đánh dấu công việc số {task_index + 1} là [Done].")
+        else:
+            print("Lỗi: Số thứ tự không hợp lệ.")
+    except ValueError:
+        print("Lỗi: Vui lòng nhập một số.")
 
 def main():
     while True:
