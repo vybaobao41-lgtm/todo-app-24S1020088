@@ -2,9 +2,10 @@
 tasks = []
 
 def add_task():
-    # Sẽ được thêm code ở Bước 3
-    print("Chức năng thêm công việc.")
-    pass
+    content = input("Nhập nội dung công việc: ")
+    # Thêm task dưới dạng dictionary
+    tasks.append({'content': content, 'status': 'Pending'})
+    print(f"Đã thêm công việc: '{content}' [Pending].")
 
 def view_tasks():
     # Sẽ được thêm code ở Bước 4
